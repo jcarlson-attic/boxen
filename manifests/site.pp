@@ -66,6 +66,17 @@ node default {
   include ruby::1_9_2
   include ruby::1_9_3
   include ruby::2_0_0
+  
+  # editors
+  include macvim
+  include textmate::textmate2::release
+  
+  # requirements for Corndog
+  require mongodb
+  require mysql
+  require phantomjs
+  require redis
+  require solr
 
   # common, useful packages
   package {
