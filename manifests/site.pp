@@ -49,35 +49,6 @@ Service {
 Homebrew::Formula <| |> -> Package <| |>
 
 node default {
-  # core modules, needed for most things
-  include dnsmasq
-  include git
-  include hub
-  include nginx
-  include nvm
-
-  # node versions
-  include nodejs::0-4
-  include nodejs::0-6
-  include nodejs::0-8
-
-  # default ruby versions
-  include ruby::1_8_7
-  include ruby::1_9_2
-  include ruby::1_9_3
-  include ruby::2_0_0
-    
-  # common, useful packages
-  package {
-    [
-      'ack',
-      'findutils',
-      'gnu-tar'
-    ]:
-  }
-
-  file { "${boxen::config::srcdir}/our-boxen":
-    ensure => link,
-    target => $boxen::config::repodir
-  }
+  require homebrew
+  require ruby
 }
